@@ -1,0 +1,44 @@
+{% extends 'seller/index.html'%}
+{% block body %}
+
+<div class="card card-white">
+    <div class="card-heading clearfix">
+        <h4 class="card-title" style="float:left">Bordered table</h4>
+        <a class="btn btn-primary" style="float:right; margin-bottom:30px" href="{{ url_for('sellerAddProducts') }}">Add</a>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Title</th>
+                    <th>About</th>
+                    <th>Photo</th>
+                    <th>Stock</th>
+                    <th>Code</th>
+                    <th>User</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products  %}
+                    <tr>
+                        <th scope="row">{{ product.id }}</th>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.title }}</td>
+                        <td>{{ product.about }}t</td>
+                        <td>{{ product.photo_1 }}</td>
+                        <td>{{ product.stock }}</td>
+                        <td>{{ product.product_code }}</td>
+                        <td>{{ product.stuff_user }}</td>
+                        <td><a class="btn btn-danger" href="{{ url_for('productDelete', id=product.id)}}">Delete</a>
+                            <a class="btn btn-warning" href="{{ url_for('productUpgrade', id=product.id)}}">Update</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

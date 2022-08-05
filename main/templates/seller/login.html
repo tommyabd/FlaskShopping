@@ -1,0 +1,72 @@
+{% extends 'based.html'%}
+{% block body %}
+
+
+
+        <!-- PAGE TITLE
+        ================================================== -->
+        <section class="page-title-section2 bg-img cover-background top-position1" data-overlay-dark="4" data-background="{{ url_for('static', filename='img/bg/bg9.jpg')}}">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Seller Login</h1>
+                    </div>
+                    <div class="col-md-12">
+                        <ul class="ps-0">
+                            <li><a href="home-default.html">Home</a></li>
+                            <li><a href="#!">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOGIN
+        ================================================== -->
+        <section>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-7 col-xl-6">
+                        <div class="bg-white p-4 border border-width-5">
+                            <div class="text-center section-heading">
+                                <h2>Login</h2>
+                            </div>
+                            <form method="post">
+                                <input type='hidden' name='csrf_token' value='{{ csrf_token() }}'>         
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>User Name</label>
+                                            <input type="text" class="form-control" name="email" placeholder="Your user name here">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Password </label>
+                                            <input type="password" class="form-control" name="password" placeholder="Your password here">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 mb-2">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="login-remember">
+                                            <label class="custom-control-label" for="login-remember">Keep me signed in</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 text-start text-sm-end">
+                                        <a href="forgot-password.html" class="m-link-muted">Forgot password?</a>
+                                    </div>
+                                </div>
+                                <button type="submit" class="butn primary w-100 mt-4"><span>Login</span></button>
+                                <div class="text-center text-small mt-4">
+                                    <span>Don't have an account yet? <a href="registration.html">Register</a></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

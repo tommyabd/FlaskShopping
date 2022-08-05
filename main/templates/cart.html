@@ -1,0 +1,162 @@
+{% extends 'based.html' %}
+{% block body %}
+
+        <!-- CART DETAILS
+        ================================================== -->
+        <section>
+            <div class="container">
+
+                <div class="row">
+
+                    <!-- product table -->
+                    <div class="col-12 shop-cart-table">
+                        <table class="table shop-cart text-center">
+                            <colgroup>
+                                <col width="100">
+                                <col>
+                                <col width="1">
+                                <col>
+                                <col width="100">
+                                <col width="1">
+                            </colgroup>
+
+                            <thead>
+                                <tr >
+                                    <th class="first"></th>
+                                    <th class="text-start text-uppercase font-weight-500">Product</th>
+                                    <th class="text-start text-uppercase font-weight-500">Price</th>
+                                    <th class="text-center text-uppercase font-weight-500">Qty</th>
+                                    <th class="text-start text-uppercase font-weight-500">Sub Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for cart in carts %}
+                                    <tr>
+                                        <td class="product-thumbnail text-start">
+
+                                            <a href="#!"><img src="{{ url_for('static', filename='img/products/{}'.format(cart.product.photo_1))}}" alt="..." class="w-100px"></a>
+                                        </td>
+                                        <td class="text-start">
+                                            <a href="#!">{{ cart.product.name }}</a>
+                                            <span class="text-uppercase d-block">SKU: 290397</span>
+                                            <a href="#!" class="display-31"><i class="fas fa-edit"></i> Edit</a>
+                                        </td>
+                                        <td class="text-start">
+                                            {{ cart.price }}
+                                        </td>
+                                        
+                                        <td class="product-quantity">
+                                            <button type="button" class='btn btn-dark'>+</button>
+
+                                            <input type="text" name="pieces"  value={{ cart.pieces }}>
+                                            <button type="button" class="btn btn-dark" onclick="window.location.href='{{ url_for( 'cartIncrease', id=cart.id) }}'">-</button>
+                                        </td>
+                                        <td class="product-subtotal text-start">{{ cart.price * cart.pieces }}</td>
+                                        <td class="product-remove text-center">
+                                            <a href="{{ url_for('delCart', id=cart.id)}}"><i class="fas fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    {% set subPrice =  subPrice + cart.price %}
+                                {% endfor%}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- end product table -->
+
+                    <!-- button set -->
+                    <div class="col-12 border-bottom border-top py-1-9 py-lg-2-3 mb-3 mb-lg-0">
+                        <button class="butn small mb-2 mb-sm-0"><span>Empty Cart</span></button>
+                        <button class="butn small float-end ms-2 mb-2 mb-sm-0"><span>Continue Shopping</span></button>
+                        <button class="butn small float-end ms-2"><span>Update Shopping Cart</span></button>
+                    </div>
+                    <!-- end button set -->
+
+                    <!-- total block set -->
+                    <div class="col-12 cart-total py-1-9 pt-lg-2-3 pb-lg-0">
+                        <div class="row">
+
+                            <div class="col-lg-5 col-md-5 mb-1-9 mb-md-0">
+                                <div id="accordion" class="accordion-style2">
+                                    <div class="card">
+                                        <div class="card-header" id="headingOne">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    Coupon Code
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion">
+                                            <div class="card-body">
+                                                <form action="#">
+
+                                                    <input type="text" class="form-control mb-2" placeholder="Enter Your Coupon code">
+                                                    <button class="butn small"><span>Apply Code</span></button>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingTwo">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Calculate Shipping
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion">
+                                            <div class="card-body">
+                                                <form action="#">
+
+                                                    <input type="text" class="form-control mb-2" placeholder="Country">
+                                                    <input type="text" class="form-control mb-2" placeholder="State / County">
+                                                    <input type="text" class="form-control mb-2" placeholder="Postcode">
+                                                    <button class="butn small"><span>Update Totals</span></button>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 offset-lg-1 col-md-7 offset-md-0">
+                                <table class="table cart-sub-total">
+                                    <tbody>
+                                        <tr>
+                                            <th class="text-end pe-0 text-uppercase">Cart Subtotal</th>
+                                            <td class="text-uppercase text-end pe-0">{{ subPrice }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-end pe-0 text-uppercase">Shipping and Handling</th>
+                                            <td class="text-uppercase text-end pe-0">Free</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pe-0" colspan="2">
+                                                <hr>
+                                            </td>
+                                        </tr>
+                                        <tr class="total">
+                                            <th class="text-uppercase text-end pe-0">Order Total</th>
+                                            <td class="text-uppercase text-end pe-0">$1598</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pe-0" colspan="2">
+                                                <hr class="mb-0">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a class="butn primary medium float-end" href="#!"><span>Proceed to Checkout</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end total block set -->
+
+                </div>
+
+            </div>
+        </section>
+
+{% endblock %}

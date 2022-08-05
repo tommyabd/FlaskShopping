@@ -1,0 +1,374 @@
+{% extends 'based.html' %}
+{% block body %}
+
+
+<section>
+    <div class="container">
+
+        <!-- product section -->
+        <div class="row mb-6 mb-md-7 mb-lg-9">
+            <div class="col-lg-5 text-center text-lg-start mb-1-9 mb-lg-0">
+
+                <!-- product left start -->
+                <div class="xzoom-container">
+                    <img class="xzoom5 mb-1-9" id="xzoom-magnific" src="{{ url_for('static', filename='img/shop/original/01_product.jpg') }}" xoriginal="{{ url_for('static', filename='img/shop/original/01_product.jpg') }}" />
+                    <div class="xzoom-thumbs m-0">
+                        <a href="{{ url_for('static', filename='img/shop/thumbs/01_product.jpg')}}"><img class="xzoom-gallery5" width="80" src="{{ url_for('static', filename='img/shop/thumbs/01_product.jpg')}}" xpreview="{{ url_for('static', filename='img/shop/thumbs/01_product.jpg')}}" title="The description goes here"></a>
+                        <a href="img/shop/original/02_product.jpg"><img class="xzoom-gallery5" width="80" src="img/shop/preview/02_product.jpg" title="The description goes here"></a>
+                        <a href="img/shop/original/03_product.jpg"><img class="xzoom-gallery5" width="80" src="img/shop/preview/03_product.jpg" title="The description goes here"></a>
+                        <a href="img/shop/original/04_product.jpg"><img class="xzoom-gallery5" width="80" src="img/shop/preview/04_product.jpg" title="The description goes here"></a>
+                    </div>
+                </div>
+                <!-- product left end -->
+
+            </div>
+            <div class="col-lg-7 ps-lg-2-7">
+                <div class="product-detail">
+                    <h3 class="mb-2">{{ product.name }} <span class="label-sale bg-primary text-white text-uppercase display-31">Sale</span></h3>
+                    <div class="bg-primary separator-line-horrizontal-full mb-4"></div>
+                    <p class="rating-text display-30"><span>Sku:</span> <span>290397</span></p>
+                    <p ></p>
+
+                    <div class="mb-4">
+
+                        <div class="d-inline-block pe-3 me-3 display-30 border-end border-color-extra-medium-gray">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+
+                        <div class="d-inline-block">
+                            <a class="text-primary" href="#!">Write a review</a>
+                        </div>
+
+                    </div>
+                    <div class="mb-3">
+                        <span class="me-3 display-26 font-weight-600 offer-price">$499.00</span>
+                        <span class="display-26 font-weight-700 text-primary">{{ product.price }} TL</span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4 col-md-2">
+                            <label>Size:</label>
+
+                            <select class="mb-3 form-control form-select">
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+
+                        </div>
+                        <div class="col-6 col-lg-3 col-md-2">
+                            <div class="product-color">
+                                <label>Color:</label>
+                                <select class="mb-3 form-control form-select">
+                                    <option value="Red">Red</option>
+                                    <option value="Black">Black</option>
+                                    <option value="Beige">Beige</option>
+                                    <option value="White">White</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 col-lg-2">
+                            <label>Qty:</label>
+                            <input type="text" value="1" placeholder="1" class="mb-3 form-control">
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-lg-12">
+                            <button class="butn primary me-2 mb-2 mb-md-0"><span><i class="fas fa-shopping-cart me-1"></i> Add to Cart</span></button>
+                            <button href="#!" class="butn text-uppercase"><span><i class="fas fa-heart me-1"></i> Add to wishlist</span></button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-lg-7">
+
+                            <label>Share on:</label>
+                            <ul class="social-icon-style3 ps-0">
+                                <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#!"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#!"><i class="fab fa-youtube"></i></a></li>
+                                <li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end product section -->
+
+        <!-- product description -->
+        <div class="row mb-6 mb-lg-8">
+
+            <div class="col-12">
+                <div class="horizontaltab tab-style5">
+                    <ul class="resp-tabs-list hor_1 text-start">
+                        <li>Description</li>
+                        <li>Additional Info</li>
+                        <li>Reviews (2)</li>
+                    </ul>
+                    <div class="resp-tabs-container hor_1">
+                        <div>
+                            <p >{{ product.about|safe}}</p>
+
+                        </div>
+                        <div>
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 mb-4 mb-lg-0">
+                                    <ul class="list-style-5">
+                                        <li><strong>Weight:</strong> 0.150 Kg</li>
+                                        <li><strong>Dimensions:</strong> 90x60x90 Cm</li>
+                                        <li><strong>Size:</strong> One Size Fits All</li>
+                                        <li><strong>Color:</strong> Gray</li>
+                                        <li><strong>Guarantee:</strong> 5 Years</li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 ps-lg-1-9">
+                                    <p >Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto in ea voluptate velit.</p>
+                                    <p class="m-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto in ea voluptate velit.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-4 mb-lg-0">
+                                    <form class="quform" action="quform/contact.php" method="post" enctype="multipart/form-data" onclick="">
+
+                                        <div class="quform-elements">
+
+                                            <div class="row">
+
+                                                <!-- text input element -->
+                                                <div class="col-md-12">
+                                                    <div class="quform-element form-group">
+                                                        <div class="quform-input">
+                                                            <input class="form-control" id="name" type="text" name="name" placeholder="Your name here" />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!-- end text input element -->
+
+                                                <!-- text input element -->
+                                                <div class="col-md-12">
+                                                    <div class="quform-element form-group">
+                                                        <div class="quform-input">
+                                                            <input class="form-control" id="email" type="text" name="email" placeholder="Your email here" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- end text input element -->
+
+                                                <div class="form-group">
+                                                    <label class="rating">Rating</label>
+                                                    <div class="product-rating display-30">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star-half-alt"></i>
+                                                    </div>
+                                                </div>
+
+                                                <!-- textarea element -->
+                                                <div class="col-md-12">
+                                                    <div class="quform-element form-group">
+                                                        <div class="quform-input">
+                                                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Comments"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- end textarea element -->
+
+                                                <!-- submit button -->
+                                                <div class="col-md-12">
+                                                    <div class="quform-submit-inner">
+                                                        <button class="butn" type="submit"><span>Sumbit comment</span></button>
+                                                    </div>
+                                                    <div class="quform-loading-wrap text-start"><span class="quform-loading"></span></div>
+                                                </div>
+                                                <!-- end submit button -->
+
+                                            </div>
+
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div class="col-lg-6 ps-lg-4">
+
+                                    <div class="mb-3">
+                                        <p class="p-0 mb-0"><strong>Nathan Ford,</strong> Sep 15, 2018</p>
+                                        <div class="mb-3 display-30">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <p >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>
+                                        <div class="bg-medium-light-gray separator-line-horrizontal-full"></div>
+                                    </div>
+
+                                    <div>
+                                        <p class="m-0"><strong>Mac Still,</strong> Aug 08, 2018</p>
+                                        <div class="mb-3 display-30">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text.</p>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end product description -->
+
+        <!-- related product -->
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading title-style3">
+                    <h3 class="h4">Related Products</h3>
+                </div>
+            </div>
+
+            <div class="carousel-style4 col-12">
+                <div class="product-grid control-top owl-carousel owl-theme">
+
+                    <div class="border">
+
+                        <a href="#!" class="product-block">
+                            <div class="label-offer bg-red">Sale</div><img src="img/shop/product-10.jpg" alt="...">
+                        </a>
+                        <div class="product-info">
+                            <a href="#!">Party Dresses</a>
+                            <p class="price text-center m-0">
+                                <span class="red line-through me-2">$600</span>
+                                <span>$599</span>
+                            </p>
+                        </div>
+                        <div class="buttons">
+                            <a href="#!" class="bg-extra-dark-gray text-white"><i class="fas fa-heart me-2"></i>Wishlist</a>
+                            <a href="#!" class="bg-primary text-white"><i class="fas fa-shopping-cart me-2"></i>Add to Cart</a>
+                        </div>
+
+                    </div>
+                    <div class="border">
+
+                        <a href="#!" class="product-block"><img src="img/shop/product-11.jpg" alt="..."></a>
+                        <div class="product-info">
+                            <a href="#!">Women Bandage</a>
+                            <p class="price text-center m-0">
+                                <span class="red line-through me-2">$500</span>
+                                <span>$300</span>
+                            </p>
+                        </div>
+                        <div class="buttons">
+                            <a href="#!" class="bg-extra-dark-gray text-white"><i class="fas fa-heart me-2"></i>Wishlist</a>
+                            <a href="#!" class="bg-primary text-white"><i class="fas fa-shopping-cart me-2"></i>Add to Cart</a>
+                        </div>
+
+                    </div>
+                    <div class="border">
+
+                        <a href="#!" class="product-block">
+                            <div class="label-offer bg-primary">New</div><img src="img/shop/product-12.jpg" alt="...">
+                        </a>
+                        <div class="product-info">
+                            <a href="#!">Short Red Dress</a>
+                            <p class="price text-center m-0">
+                                <span class="red line-through me-2">$200</span>
+                                <span>$100</span>
+                            </p>
+                        </div>
+                        <div class="buttons">
+                            <a href="#!" class="bg-extra-dark-gray text-white"><i class="fas fa-heart me-2"></i>Wishlist</a>
+                            <a href="#!" class="bg-primary text-white"><i class="fas fa-shopping-cart me-2"></i>Add to Cart</a>
+                        </div>
+
+                    </div>
+                    <div class="border">
+
+                        <a href="#!" class="product-block">
+                            <div class="label-offer bg-red">Sale</div><img src="img/shop/product-13.jpg" alt="...">
+                        </a>
+                        <div class="product-info">
+                            <a href="#!">Short Flower Print</a>
+                            <p class="price text-center m-0">
+                                <span class="red line-through me-2">$1200</span>
+                                <span>$900</span>
+                            </p>
+                        </div>
+                        <div class="buttons">
+                            <a href="#!" class="bg-extra-dark-gray text-white"><i class="fas fa-heart me-2"></i>Wishlist</a>
+                            <a href="#!" class="bg-primary text-white"><i class="fas fa-shopping-cart me-2"></i>Add to Cart</a>
+                        </div>
+
+                    </div>
+                    <div class="border">
+
+                        <a href="#!" class="product-block"><img src="img/shop/product-14.jpg" alt="..."></a>
+                        <div class="product-info">
+                            <a href="#!">Black fly Design</a>
+                            <p class="price text-center m-0">
+                                <span class="red line-through me-2">$399</span>
+                                <span>$199</span>
+                            </p>
+                        </div>
+                        <div class="buttons">
+                            <a href="#!" class="bg-extra-dark-gray text-white"><i class="fas fa-heart me-2"></i>Wishlist</a>
+                            <a href="#!" class="bg-primary text-white"><i class="fas fa-shopping-cart me-2"></i>Add to Cart</a>
+                        </div>
+
+                    </div>
+                    <div class="border">
+
+                        <a href="#!" class="product-block">
+                            <div class="label-offer bg-primary">New</div><img src="img/shop/product-15.jpg" alt="...">
+                        </a>
+                        <div class="product-info">
+                            <a href="#!">Black Flower Print</a>
+                            <p class="price text-center m-0">
+                                <span class="red line-through me-2">$800</span>
+                                <span>$699</span>
+                            </p>
+                        </div>
+                        <div class="buttons">
+                            <a href="#!" class="bg-extra-dark-gray text-white"><i class="fas fa-heart me-2"></i>Wishlist</a>
+                            <a href="#!" class="bg-primary text-white"><i class="fas fa-shopping-cart me-2"></i>Add to Cart</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- end related product -->
+
+    </div>
+</section>
+
+{% endblock %}

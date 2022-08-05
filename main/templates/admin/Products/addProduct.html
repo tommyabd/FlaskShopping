@@ -1,0 +1,86 @@
+{% extends 'admin/based.html' %}
+{% block body %}
+{{ ckeditor.load() }}
+
+<div class="card card-white">
+    <div class="card-heading clearfix">
+        <h4 class="card-title">Form Elements</h4>
+    </div>
+    <div class="card-body">
+        <form class="form-horizontal" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" placeholder="Name" name='name'>
+                    
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" placeholder="Title" name='title'>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">About</label>
+                <div class="col-sm-10">
+                    {{ ckeditor.create(name='about') }}
+                    {{ ckeditor.config(class='form-control') }}
+                </div>
+            </div> 
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Product Code</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" placeholder="Product Code" name='productCode'>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Stock</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" placeholder="Stock" name='stock'>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Price</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" placeholder="Price" name='price'>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Size</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" placeholder="Size" name='size'>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Category</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="inputGroupSelect01" name='category'>
+                        <option selected value=" ">Choose...</option>
+                        {% for category in categorys %}
+                            <option value="{{ category.id }}" >{{ category.name }}</option>
+                        {% endfor %}
+                      </select>
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Product Photo</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="file" placeholder="Photo" name='photo'>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Submit</label>
+                <div class="col-sm-10">
+                    <input class="form-control bnt btn-success" type="submit" placeholder="Submit">
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

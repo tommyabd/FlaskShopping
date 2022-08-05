@@ -1,0 +1,42 @@
+<div class="row mb-6 mb-lg-8">
+    <div class="col-12">
+        <div class="section-heading title-style3">
+            <h2 class="h4">Special Offers</h2>
+        </div>
+    </div>
+
+    <script>
+        function addToCart(productId) {
+            fetch('[your.local.host.]/addCart/productId', 
+                {method: 'POST'}
+            )
+        }
+    </script>
+
+    <div class="carousel-style4 col-12">
+        <div class="product-grid mx-auto owl-carousel owl-theme">
+            {% for product in products %}
+            <div class="border">
+
+                <a href="#!" class="product-block">
+                    <div class="label-offer bg-red">Sale</div><img src="{{ url_for('static', filename='img/products/{}'.format(product.photo_1)) }}" alt="" />
+                </a>
+                <div class="product-info">
+                    <a href="#!">{{ product.name}}</a>
+                    <p class="price text-center m-0">
+                        <span >{{ product.price }}TL</span>
+                        
+                    </p>
+                </div>
+                <div class="buttons">
+                    <a href="#!" class="bg-extra-dark-gray text-white"><i class="fas  me-2"></i></a>
+                    <a href="{{ url_for('addCart',id=product.id )}}" class="bg-primary text-white"><i class="fas fa-shopping-cart me-2"></i>Add to Cart</a>
+                </div>
+
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,40 @@
+<div class="page-sidebar">
+    <a class="logo-box" href="index.html">
+        <span>RPLast Company</span>
+        <i class="icon-radio_button_unchecked" id="fixed-sidebar-toggle-button"></i>
+        <i class="icon-close" id="sidebar-toggle-button-close"></i>
+    </a>
+    <div class="page-sidebar-inner">
+        <div class="page-sidebar-menu">
+            <ul class="accordion-menu">
+                <li>
+                    <a href="index.html">
+                        <i class="menu-icon icon-home4"></i><span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('products')}}">
+                        <i class="menu-icon icon-inbox"></i><span>Add Product</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('categorys') }}">
+                        <i class="menu-icon icon-flash_on"></i><span>Add Category</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('adminRequest') }}">
+                        <i class="menu-icon icon-flash_on"></i><span>Admin Request</span>
+                    </a>
+                </li>
+               
+                <li class="menu-divider"></li>
+                <li>
+                    <a href="#!">
+                        <i class="menu-icon icon-public"></i><span>Add Product</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

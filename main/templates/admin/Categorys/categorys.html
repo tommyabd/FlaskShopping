@@ -1,0 +1,36 @@
+{% extends 'admin/based.html'%}
+{% block body %}
+
+<div class="card card-white">
+    <div class="card-heading clearfix">
+        <h4 class="card-title" style="float:left">Bordered table</h4>
+        <a class="btn btn-primary" style="float:right; margin-bottom:30px" href="{{ url_for('categoryAdd') }}">Add</a>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Photo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for category in categorys  %}
+                    <tr>
+                        <th scope="row">{{ category.id }}</th>
+                        <td>{{ category.name }}</td>
+                        <td>{{ category.typec.name }}</td>
+                        <td>{{ category.img }}</td>
+                        <td><a class="btn btn-danger" href="">Delete</a>
+                            <a class="btn btn-warning">Update</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
